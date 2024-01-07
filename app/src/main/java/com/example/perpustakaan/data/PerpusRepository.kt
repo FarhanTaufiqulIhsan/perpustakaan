@@ -70,3 +70,26 @@ interface BukuRepository {
     suspend fun delete(bukuId: String)
     fun getBukuById(bukuId: String): Flow<Buku>
 }
+
+class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuRepository{
+    override fun getAll(): Flow<List<Buku>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun save(buku: Buku): String {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun update(buku: Buku) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun delete(bukuId: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getBukuById(bukuId: String): Flow<Buku> {
+        TODO("Not yet implemented")
+    }
+
+}
