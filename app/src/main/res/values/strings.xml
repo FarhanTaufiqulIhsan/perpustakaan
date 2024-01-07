@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Peminjaman Buku Perpustakaan</string>
+    <string name="perpus">Perpustakaan</string>
+    <string name="peminjaman">Peminjaman Buku</string>
 </resources>
