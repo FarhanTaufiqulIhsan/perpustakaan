@@ -1,5 +1,7 @@
 package com.example.perpustakaan.data
 
+import android.content.ContentValues
+import android.util.Log
 import com.example.perpustakaan.model.Anggota
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
@@ -29,7 +31,17 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
     }.flowOn(Dispatchers.IO)
 
     override suspend fun save(anggota: Anggota): String {
-        TODO("Not yet implemented")
+        return try {
+            val documentReference = firestore.collection("Anggota")
+                .add(anggota)
+                .await()
+            firestore.collection("Anggota").document(documentReference.id)
+                .set(anggota.copy(id = documentReference.id))
+            "Berhasil + ${documentReference.id}"
+        } catch (e: Exception) {
+            Log.w(ContentValues.TAG, "Error adding document", e)
+            "Gagal $e"
+        }
     }
 
     override suspend fun update(anggota: Anggota) {
