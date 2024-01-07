@@ -14,3 +14,12 @@ data class AddEvent(
     val jk: String = "",
     val nohp: String = ""
 )
+
+fun Anggota.toDetailAnggota(): AddEvent =
+    AddEvent(
+        id = id,
+        nama = nama,
+        alamat = alamat,
+        jk = jk,
+        nohp = nohp
+    )
