@@ -72,9 +72,14 @@ interface BukuRepository {
 }
 
 class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuRepository{
-    override fun getAll(): Flow<List<Buku>> {
-        TODO("Not yet implemented")
-    }
+    override fun getAll(): Flow<List<Buku>> = flow {
+        val snapshot = firestore.collection("Buku")
+            .orderBy("judul", Query.Direction.ASCENDING)
+            .get()
+            .await()
+        val buku = snapshot.toObjects(Buku::class.java)
+        emit(buku)
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun save(buku: Buku): String {
         TODO("Not yet implemented")
