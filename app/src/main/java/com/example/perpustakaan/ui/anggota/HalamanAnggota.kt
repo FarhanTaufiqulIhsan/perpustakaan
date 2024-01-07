@@ -18,7 +18,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import com.example.perpustakaan.model.Anggota
@@ -35,6 +37,25 @@ fun AnggotaScreen(
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
 ) {}
+
+@Composable
+fun BodyHomeAnggota(
+    itemAnggota: List<Anggota>,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        if (itemAnggota.isEmpty()) {
+            Text(
+                text = "Tidak ada data Anggota",
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge
+            )
+        }
+    }
+}
 
 @Composable
 fun ListAnggota(
