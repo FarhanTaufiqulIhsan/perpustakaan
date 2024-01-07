@@ -96,7 +96,7 @@ class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuReposit
     }
 
     override suspend fun update(buku: Buku) {
-        TODO("Not yet implemented")
+        firestore.collection("Buku").document(buku.id).set(buku).await()
     }
 
     override suspend fun delete(bukuId: String) {
