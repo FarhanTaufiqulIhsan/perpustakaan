@@ -100,7 +100,7 @@ class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuReposit
     }
 
     override suspend fun delete(bukuId: String) {
-        TODO("Not yet implemented")
+        firestore.collection("Buku").document(bukuId).delete().await()
     }
 
     override fun getBukuById(bukuId: String): Flow<Buku> {
