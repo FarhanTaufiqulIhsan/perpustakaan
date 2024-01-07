@@ -53,7 +53,11 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
     }
 
     override fun getAnggotaById(anggotaId: String): Flow<Anggota> {
-        TODO("Not yet implemented")
+        return flow {
+            val snapshot = firestore.collection("Anggota").document(anggotaId).get().await()
+            val anggota = snapshot.toObject(Anggota::class.java)
+            emit(anggota!!)
+        }.flowOn(Dispatchers.IO)
     }
 
 }
