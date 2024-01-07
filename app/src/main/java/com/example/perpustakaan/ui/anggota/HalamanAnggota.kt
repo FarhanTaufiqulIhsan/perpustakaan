@@ -42,6 +42,7 @@ fun AnggotaScreen(
 fun BodyHomeAnggota(
     itemAnggota: List<Anggota>,
     modifier: Modifier = Modifier,
+    onAnggotaClick: (String) -> Unit = {}
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -52,6 +53,13 @@ fun BodyHomeAnggota(
                 text = "Tidak ada data Anggota",
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge
+            )
+        } else {
+            ListAnggota(
+                itemAnggota = itemAnggota,
+                modifier = Modifier
+                    .padding(horizontal = 8.dp),
+                onItemClick = { onAnggotaClick(it.id) }
             )
         }
     }
