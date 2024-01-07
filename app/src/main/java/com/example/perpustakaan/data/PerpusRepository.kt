@@ -3,6 +3,7 @@ package com.example.perpustakaan.data
 import android.content.ContentValues
 import android.util.Log
 import com.example.perpustakaan.model.Anggota
+import com.example.perpustakaan.model.Buku
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
 import com.google.firebase.firestore.Query
@@ -63,5 +64,9 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
 }
 
 interface BukuRepository {
-
+    fun getAll(): Flow<List<Buku>>
+    suspend fun save(buku: Buku): String
+    suspend fun update(buku: Buku)
+    suspend fun delete(bukuId: String)
+    fun getBukuById(bukuId: String): Flow<Buku>
 }
