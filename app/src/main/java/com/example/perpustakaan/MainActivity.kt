@@ -10,8 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.perpustakaan.ui.home.HalamanHome
-import com.example.perpustakaan.ui.home.HalamanUtama
+import com.example.perpustakaan.ui.halaman.HalamanUtama
 import com.example.perpustakaan.ui.theme.PerpustakaanTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.perpustakaan.ui.home
+package com.example.perpustakaan.ui.halaman
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
