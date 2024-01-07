@@ -1,7 +1,5 @@
 package com.example.perpustakaan.ui.home
 
-import androidx.compose.animation.AnimatedContentScope.SlideDirection.Companion.Start
-import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
