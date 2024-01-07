@@ -35,3 +35,7 @@ fun AddEvent.toAnggota() = Anggota(
 data class AddUIState(
     val addEvent: AddEvent = AddEvent(),
 )
+
+fun Anggota.toUIStateAnggota(): AddUIState = AddUIState(
+    addEvent = this.toDetailAnggota()
+)
