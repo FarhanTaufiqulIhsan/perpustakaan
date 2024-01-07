@@ -2,4 +2,6 @@
     <string name="app_name">Peminjaman Buku Perpustakaan</string>
     <string name="perpus">Perpustakaan</string>
     <string name="peminjaman">Peminjaman Buku</string>
+    <string name="laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
 </resources>
