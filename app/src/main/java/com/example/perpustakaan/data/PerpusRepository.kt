@@ -49,7 +49,7 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
     }
 
     override suspend fun delete(anggotaId: String) {
-        TODO("Not yet implemented")
+        firestore.collection("Anggota").document(anggotaId).delete().await()
     }
 
     override fun getAnggotaById(anggotaId: String): Flow<Anggota> {
