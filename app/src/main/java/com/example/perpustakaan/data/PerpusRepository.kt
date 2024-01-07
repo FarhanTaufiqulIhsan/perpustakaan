@@ -104,7 +104,11 @@ class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuReposit
     }
 
     override fun getBukuById(bukuId: String): Flow<Buku> {
-        TODO("Not yet implemented")
+        return flow {
+            val snapshot = firestore.collection("Buku").document(bukuId).get().await()
+            val buku = snapshot.toObject(Buku::class.java)
+            emit(buku!!)
+        }.flowOn(Dispatchers.IO)
     }
 
 }
