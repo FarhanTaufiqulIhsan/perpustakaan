@@ -4,6 +4,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 interface AppContainer {
     val anggotaRepository: AnggotaRepository
+    val bukuRepository: BukuRepository
 }
 
 class PerpusContainer : AppContainer {
@@ -11,5 +12,9 @@ class PerpusContainer : AppContainer {
 
     override val anggotaRepository: AnggotaRepository by lazy {
         AnggotaRepositoryImpl(firestore)
+    }
+
+    override val bukuRepository: BukuRepository by lazy {
+        BukuRepositoryImpl(firestore)
     }
 }
