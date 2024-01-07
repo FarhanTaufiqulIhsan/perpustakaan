@@ -18,5 +18,5 @@ data class Buku(
     val tahunterbit: String,
     val kategori: String
 ){
-
+    constructor(): this("","","","","","")
 }
