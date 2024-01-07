@@ -13,7 +13,8 @@ Data relasi :
 Database yang digunakan adalah Firebase.
 
 # Use Case
-<img width="445" alt="Screenshot 2024-01-07 133212" src="https://github.com/FarhanTaufiqulIhsan/perpustakaan/assets/115075868/d428afc6-f905-4599-a6a9-e2226e6cab22">
+![Use Case Diagram1](https://github.com/FarhanTaufiqulIhsan/perpustakaan/assets/115075868/51c098d2-7bb1-46c2-b2e0-6138c4a7ac7b)
+
 
 # Pembagian Tugas
 Farhan mengerjakan bagian data buku, meluputi data class buku, halaman data buku, navigasi pada halaman buku, halaman entry data peminjaman , halaman utama.
