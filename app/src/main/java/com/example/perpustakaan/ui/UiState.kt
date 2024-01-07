@@ -23,3 +23,11 @@ fun Anggota.toDetailAnggota(): AddEvent =
         jk = jk,
         nohp = nohp
     )
+
+fun AddEvent.toAnggota() = Anggota(
+    id = id,
+    nama = nama,
+    alamat = alamat,
+    jk = jk,
+    nohp = nohp
+)
