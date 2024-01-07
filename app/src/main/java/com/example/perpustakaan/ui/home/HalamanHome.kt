@@ -22,7 +22,7 @@ import com.example.perpustakaan.R
 
 @Composable
 fun HalamanHome(
-    onNextButtonClicked: () -> Unit
+    //onNextButtonClicked: () -> Unit
 ) {
     val image = painterResource(id = R.drawable.library)
     Column(
