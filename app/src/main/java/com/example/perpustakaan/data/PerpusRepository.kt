@@ -61,3 +61,7 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
     }
 
 }
+
+interface BukuRepository {
+
+}
