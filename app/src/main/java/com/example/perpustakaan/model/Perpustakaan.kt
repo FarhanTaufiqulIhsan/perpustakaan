@@ -9,3 +9,14 @@ data class Anggota(
 ) {
     constructor(): this("","","","", "")
 }
+
+data class Buku(
+    val id: String,
+    val judul: String,
+    val pengarang: String,
+    val penerbit: String,
+    val tahunterbit: String,
+    val kategori: String
+){
+
+}
