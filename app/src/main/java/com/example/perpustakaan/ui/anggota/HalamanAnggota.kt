@@ -1,11 +1,14 @@
 package com.example.perpustakaan.ui.anggota
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Phone
@@ -32,6 +35,26 @@ fun AnggotaScreen(
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
 ) {}
+
+@Composable
+fun ListAnggota(
+    itemAnggota: List<Anggota>,
+    modifier: Modifier = Modifier,
+    onItemClick: (Anggota) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        this.items(itemAnggota, key = { it.id }) {anggota ->
+            DataAnggota(
+                anggota = anggota,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onItemClick(anggota) }
+            )
+        }
+    }
+}
 
 @Composable
 fun DataAnggota(
