@@ -45,7 +45,7 @@ class AnggotaRepositoryImpl(private val firestore: FirebaseFirestore) : AnggotaR
     }
 
     override suspend fun update(anggota: Anggota) {
-        TODO("Not yet implemented")
+        firestore.collection("Anggota").document(anggota.id).set(anggota).await()
     }
 
     override suspend fun delete(anggotaId: String) {
