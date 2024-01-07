@@ -82,7 +82,17 @@ class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuReposit
     }.flowOn(Dispatchers.IO)
 
     override suspend fun save(buku: Buku): String {
-        TODO("Not yet implemented")
+        return try {
+            val documentReference = firestore.collection("Buku")
+                .add(buku)
+                .await()
+            firestore.collection("Buku").document(documentReference.id)
+                .set(buku.copy(id = documentReference.id))
+            "Berhasil + ${documentReference.id}"
+        } catch (e: Exception) {
+            Log.w(ContentValues.TAG, "Error adding document", e)
+            "Gagal $e"
+        }
     }
 
     override suspend fun update(buku: Buku) {
