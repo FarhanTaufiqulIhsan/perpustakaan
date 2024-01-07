@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "477307794510",
+    "project_id": "perpusfirebase-6beb4",
+    "storage_bucket": "perpusfirebase-6beb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477307794510:android:76dbcf85265aa8a219ff1f",
+        "android_client_info": {
+          "package_name": "com.example.perpustakaan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDl0Vy_Ubuo__G9kAQ7uzJiUN-rLDC7Cs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
