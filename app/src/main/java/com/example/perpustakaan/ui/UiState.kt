@@ -19,6 +19,15 @@ data class AddEventAnggota(
     val nohp: String = ""
 )
 
+data class AddEventBuku(
+    val id: String = "",
+    val judul: String = "",
+    val pengarang: String = "",
+    val penerbit: String = "",
+    val tahunterbit: String = "",
+    val kategori: String = ""
+)
+
 fun Anggota.toDetailAnggota(): AddEventAnggota =
     AddEventAnggota(
         id = id,
