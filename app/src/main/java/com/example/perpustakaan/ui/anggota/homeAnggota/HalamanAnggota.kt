@@ -37,7 +37,7 @@ import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 
-object DestinasiHome : DestinasiNavigasi {
+object DestinasiHomeAnggota : DestinasiNavigasi {
     override val route = "home"
     override val titleRes = "Anggota"
 }
@@ -47,7 +47,7 @@ object DestinasiHome : DestinasiNavigasi {
 fun AnggotaScreen(
     navigateToItemEntryAnggota: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (String) -> Unit = {},
+    onDetailClickAnggota: (String) -> Unit = {},
     viewModel: HalamanAnggotaViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -63,7 +63,8 @@ fun AnggotaScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntryAnggota,
+                onClick ={ navigateToItemEntryAnggota() },
+
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(18.dp)
             ) {
@@ -80,7 +81,7 @@ fun AnggotaScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onAnggotaClick = onDetailClick
+            onAnggotaClick = onDetailClickAnggota
         )
     }
 }

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.perpustakaan.PerpusAplication
+import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.homeAnggota.HalamanAnggotaViewModel
 
 fun CreationExtras.aplikasiPerpus(): PerpusAplication =
@@ -15,6 +16,10 @@ object PenyediaViewModel {
 
         initializer {
             HalamanAnggotaViewModel(aplikasiPerpus().container.anggotaRepository)
+        }
+
+        initializer {
+            AddAnggotaViewModel(aplikasiPerpus().container.anggotaRepository)
         }
     }
 }

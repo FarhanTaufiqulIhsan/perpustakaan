@@ -28,9 +28,9 @@ import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
-object DestinasiEntry : DestinasiNavigasi {
+object DestinasiEntryAnggota : DestinasiNavigasi {
     override val route = "item_entry"
-    override val titleRes = "Entry Anggota"
+    override val titleRes = "Entry_Anggota"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,7 +47,7 @@ fun AddAnggota(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             AnggotaTopAppBar(
-                title = DestinasiEntry.titleRes,
+                title = DestinasiEntryAnggota.titleRes,
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior,
                 navigateUp = navigateBack

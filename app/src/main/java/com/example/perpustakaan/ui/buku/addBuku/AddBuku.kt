@@ -28,7 +28,7 @@ import com.example.perpustakaan.ui.BukuTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
-object DestinasiEntry : DestinasiNavigasi {
+object DestinasiEntryBuku : DestinasiNavigasi {
     override val route = "item_entry"
     override val titleRes = "Entry Buku"
 }
@@ -47,7 +47,7 @@ fun AddBuku(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             BukuTopAppBar(
-                title = DestinasiEntry.titleRes,
+                title = DestinasiEntryBuku.titleRes,
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior,
                 navigateUp = navigateBack
