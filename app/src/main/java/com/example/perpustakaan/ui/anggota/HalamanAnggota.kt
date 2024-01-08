@@ -25,8 +25,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
+import com.example.perpustakaan.ui.PenyediaViewModel
 
 object DestinasiHome : DestinasiNavigasi {
     override val route = "home"
@@ -39,6 +41,7 @@ fun AnggotaScreen(
     navigateToItemEntryAnggota: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
+    viewModel: HalamanAnggotaViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 }
