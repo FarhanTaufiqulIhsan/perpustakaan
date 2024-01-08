@@ -24,6 +24,12 @@ object DestinasiEntry : DestinasiNavigasi {
 }
 
 @Composable
+fun AddAnggota(
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {}
+
+@Composable
 fun EntryBodyAnggota(
     addUIStateAnggota: AddUIStateAnggota,
     onAnggotaValueChange: (AddEventAnggota) -> Unit,
