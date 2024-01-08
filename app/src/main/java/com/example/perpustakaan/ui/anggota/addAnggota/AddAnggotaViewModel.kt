@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import com.example.perpustakaan.data.AnggotaRepository
 import com.example.perpustakaan.ui.AddEventAnggota
 import com.example.perpustakaan.ui.AddUIStateAnggota
+import com.example.perpustakaan.ui.toAnggota
 
 class AddAnggotaViewModel(private val anggotaRepository: AnggotaRepository) : ViewModel() {
     var addUIStateAnggota by mutableStateOf(AddUIStateAnggota())
@@ -14,5 +15,9 @@ class AddAnggotaViewModel(private val anggotaRepository: AnggotaRepository) : Vi
 
     fun updateAddUIStateAnggota(addEventAnggota: AddEventAnggota) {
         addUIStateAnggota = AddUIStateAnggota(addEventAnggota = addEventAnggota)
+    }
+
+    suspend fun addAnggota() {
+        anggotaRepository.save(addUIStateAnggota.addEventAnggota.toAnggota())
     }
 }
