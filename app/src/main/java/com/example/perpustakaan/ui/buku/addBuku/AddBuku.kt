@@ -24,6 +24,12 @@ object DestinasiEntry : DestinasiNavigasi {
 }
 
 @Composable
+fun AddBuku(
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier
+) {}
+
+@Composable
 fun EntryBodyBuku(
     addUIStateBuku: AddUIStateBuku,
     onBukuValueChange: (AddEventBuku) -> Unit,
