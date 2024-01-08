@@ -62,6 +62,16 @@ fun DataBuku(
                     style = MaterialTheme.typography.titleMedium
                 )
             }
+
+            Row (
+                modifier = Modifier.fillMaxWidth()
+            ){
+                Text(
+                    text = buku.kategori,
+                    style = MaterialTheme.typography.titleLarge,
+                    )
+
+            }
         }
     }
 }
