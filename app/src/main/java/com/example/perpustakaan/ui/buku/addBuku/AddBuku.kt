@@ -13,11 +13,20 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AddEventBuku
+import com.example.perpustakaan.ui.AddUIStateBuku
 
 object DestinasiEntry : DestinasiNavigasi {
     override val route = "item_entry"
     override val titleRes = "Entry Buku"
 }
+
+@Composable
+fun EntryBodyBuku(
+    addUIStateBuku: AddUIStateBuku,
+    onBukuValueChange: (AddEventBuku) -> Unit,
+    onSaveClickBuku: () -> Unit,
+    modifier: Modifier = Modifier
+) {}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
