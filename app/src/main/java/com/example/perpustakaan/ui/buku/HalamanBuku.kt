@@ -2,6 +2,8 @@ package com.example.perpustakaan.ui.buku
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.perpustakaan.model.Anggota
+import com.example.perpustakaan.model.Buku
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 
 object DestinasiHome: DestinasiNavigasi{
@@ -15,3 +17,11 @@ fun BukuScreen(
     modifier: Modifier = Modifier,
     onDetailClick: (String) -> Unit = {},
 ) {}
+
+@Composable
+fun DataBuku(
+    buku: Buku,
+    modifier: Modifier = Modifier
+){
+
+}
