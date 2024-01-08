@@ -16,6 +16,13 @@ object DetailDestinationBuku : DestinasiNavigasi{
 }
 
 @Composable
+private fun ItemDetailsRowBuku(
+    labelResIDBuku: String,
+    itemDetailAnggota: String,
+    modifier: Modifier =Modifier
+){}
+
+@Composable
 private fun DeleteConfirmationDialogBuku(
     onDeleteConfirmBuku: () -> Unit,
     onDeletecancelmBuku: () -> Unit,
