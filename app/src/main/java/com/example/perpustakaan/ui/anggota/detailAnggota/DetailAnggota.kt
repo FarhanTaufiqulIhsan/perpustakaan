@@ -15,6 +15,13 @@ object DetailDestinationAnggota : DestinasiNavigasi {
 }
 
 @Composable
+private fun ItemDetailsRowAnggota(
+    labelResIDAnggota: String,
+    itemDetailAnggota: String,
+    modifier: Modifier = Modifier
+) {}
+
+@Composable
 private fun DeleteConfirmationDialog(
     onDeleteConfirmAnggota: () -> Unit,
     onDeleteCancelAnggota: () -> Unit,
