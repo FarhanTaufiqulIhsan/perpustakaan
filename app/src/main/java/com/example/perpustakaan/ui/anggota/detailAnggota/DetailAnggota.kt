@@ -10,6 +10,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -42,11 +43,30 @@ private fun ItemDetailsBodyAnggota(
         modifier = modifier.padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
+        var deleteConfirmationRequiredAnggota by rememberSaveable { mutableStateOf(false) }
         ItemDetailsAnggota(
             anggota = detailUIStateAnggota.addEventAnggota.toAnggota(),
             modifier = Modifier.fillMaxWidth()
         )
+
+        OutlinedButton(
+            onClick = { deleteConfirmationRequiredAnggota = true },
+            shape = MaterialTheme.shapes.small,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Delete")
+        }
+
+        if (deleteConfirmationRequiredAnggota) {
+            DeleteConfirmationDialog(
+                onDeleteConfirmAnggota = {
+                    deleteConfirmationRequiredAnggota = false
+                    onDeleteAnggota()
+                },
+                onDeleteCancelAnggota = { deleteConfirmationRequiredAnggota = false },
+                modifier = Modifier.padding(12.dp)
+            )
+        }
     }
 }
 
