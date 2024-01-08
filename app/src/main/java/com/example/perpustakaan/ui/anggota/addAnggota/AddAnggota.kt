@@ -24,6 +24,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AddEventAnggota
 import com.example.perpustakaan.ui.AddUIStateAnggota
+import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
@@ -44,6 +45,14 @@ fun AddAnggota(
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            AnggotaTopAppBar(
+                title = DestinasiEntry.titleRes,
+                canNavigateBack = true,
+                scrollBehavior = scrollBehavior,
+                navigateUp = navigateBack
+            )
+        }
         ) { innerPadding ->
         EntryBodyAnggota(
             addUIStateAnggota = addAnggotaViewModel.addUIStateAnggota,
