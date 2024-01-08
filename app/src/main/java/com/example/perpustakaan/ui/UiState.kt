@@ -68,6 +68,9 @@ data class AddUIStateAnggota(
     val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
 
+fun Buku.toUIStateBuku(): AddUIStateBuku = AddUIStateBuku(
+    addEventBuku = this.toDetailBuku()
+)
 fun Anggota.toUIStateAnggota(): AddUIStateAnggota = AddUIStateAnggota(
     addEventAnggota = this.toDetailAnggota()
 )
