@@ -18,7 +18,7 @@ sealed class AnggotaUIState {
     object Loading : AnggotaUIState()
 }
 
-class HomeViewModel(private val anggotaRepository: AnggotaRepository) : ViewModel() {
+class HalamanAnggotaViewModel(private val anggotaRepository: AnggotaRepository) : ViewModel() {
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
