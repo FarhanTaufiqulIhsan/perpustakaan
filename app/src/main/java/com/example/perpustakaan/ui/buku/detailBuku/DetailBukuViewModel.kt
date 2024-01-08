@@ -8,5 +8,9 @@ class DetailBukuViewModel (
     savedStateHandle: SavedStateHandle,
     private val repository: BukuRepository
 ) : ViewModel(){
+    companion object{
+        private const val TIMEOUT_MILLIS = 5_000L
+    }
 
+    val bukuId: String = checkNotNull(savedStateHandle[DetailDestinationBuku.bukuId])
 }
