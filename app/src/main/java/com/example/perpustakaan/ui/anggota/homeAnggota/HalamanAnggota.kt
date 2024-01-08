@@ -1,4 +1,4 @@
-package com.example.perpustakaan.ui.anggota
+package com.example.perpustakaan.ui.anggota.homeAnggota
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -31,7 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
