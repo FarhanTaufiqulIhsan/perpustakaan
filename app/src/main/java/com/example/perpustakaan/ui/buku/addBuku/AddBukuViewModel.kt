@@ -5,9 +5,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.perpustakaan.data.BukuRepository
+import com.example.perpustakaan.ui.AddEventBuku
 import com.example.perpustakaan.ui.AddUIStateBuku
 
 class AddBukuViewModel(private val bukuRepository: BukuRepository) : ViewModel() {
     var addUIStateBuku by mutableStateOf(AddUIStateBuku())
         private set
+
+    fun updateAddUIStateBuku(addEventBuku: AddEventBuku) {
+        addUIStateBuku = AddUIStateBuku(addEventBuku = addEventBuku)
+    }
 }
