@@ -7,4 +7,8 @@ import com.example.perpustakaan.data.AnggotaRepository
 class DetailAnggotaViewModel(
     savedStateHandle: SavedStateHandle,
     private val repository: AnggotaRepository
-) : ViewModel() {}
+) : ViewModel() {
+    companion object {
+        private const val TIMEOUT_MILLIS = 5_000L
+    }
+}
