@@ -45,7 +45,45 @@ fun ItemDetailsBuku(
                 .padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+            ItemDetailsRowBuku(
+                labelResIDBuku = "Nama",
+                itemDetailBuku = buku.judul,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
 
+            ItemDetailsRowBuku(
+                labelResIDBuku = "Pengarang",
+                itemDetailBuku = buku.pengarang,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+
+            ItemDetailsRowBuku(
+                labelResIDBuku = "Penerbit",
+                itemDetailBuku = buku.tahunterbit,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+
+            ItemDetailsRowBuku(
+                labelResIDBuku = "Tahun Terbit",
+                itemDetailBuku = buku.tahunterbit,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
+
+            ItemDetailsRowBuku(
+                labelResIDBuku = "Kategori",
+                itemDetailBuku = buku.kategori,
+                modifier = Modifier.padding(
+                    horizontal = 12.dp
+                )
+            )
         }
     }
 }
