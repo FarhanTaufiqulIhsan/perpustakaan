@@ -14,16 +14,20 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.DetailUIStateAnggota
+import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.toAnggota
 
 object DetailDestinationAnggota : DestinasiNavigasi {
@@ -38,7 +42,11 @@ fun DetailScreenAnggota(
     navigateToEditItemAnggota: (String) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
-) {}
+    viewModel: DetailAnggotaViewModel = viewModel(factory = PenyediaViewModel.Factory)
+) {
+    val uiStateAnggota = viewModel.uiStateAnggota.collectAsState()
+    val coroutine = rememberCoroutineScope()
+}
 
 @Composable
 private fun ItemDetailsBodyAnggota(
