@@ -33,6 +33,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
+import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 
 object DestinasiHome : DestinasiNavigasi {
@@ -52,6 +53,13 @@ fun AnggotaScreen(
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            AnggotaTopAppBar(
+                title = "Anggota",
+                canNavigateBack = false,
+                scrollBehavior = scrollBehavior
+            )
+        }
         ) { innerPadding ->
         val uiStateAnggota by viewModel.homeUIState.collectAsState()
         BodyHomeAnggota(
