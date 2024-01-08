@@ -34,6 +34,13 @@ object DetailDestinationAnggota : DestinasiNavigasi {
 }
 
 @Composable
+fun DetailScreenAnggota(
+    navigateToEditItemAnggota: (String) -> Unit,
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {}
+
+@Composable
 private fun ItemDetailsBodyAnggota(
     detailUIStateAnggota: DetailUIStateAnggota,
     onDeleteAnggota: () -> Unit,
