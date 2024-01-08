@@ -11,4 +11,6 @@ class DetailAnggotaViewModel(
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
+
+    val anggotaId: String = checkNotNull(savedStateHandle[DetailDestinationAnggota.anggotaId])
 }
