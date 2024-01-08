@@ -60,7 +60,7 @@ fun AddBuku(
             onSaveClickBuku = {
                 coroutineScope.launch {
                     addBukuViewModel.addBuku()
-                    navigateBack
+                    navigateBack()
                 }
             },
             modifier = Modifier

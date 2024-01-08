@@ -10,6 +10,7 @@ import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggota
 import com.example.perpustakaan.ui.anggota.addAnggota.DestinasiEntryAnggota
 import com.example.perpustakaan.ui.anggota.homeAnggota.AnggotaScreen
 import com.example.perpustakaan.ui.anggota.homeAnggota.DestinasiHomeAnggota
+import com.example.perpustakaan.ui.buku.addBuku.AddBuku
 import com.example.perpustakaan.ui.buku.addBuku.DestinasiEntryBuku
 import com.example.perpustakaan.ui.buku.homeBuku.BukuScreen
 import com.example.perpustakaan.ui.buku.homeBuku.DestinasiHomeBuku
@@ -62,6 +63,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             AddAnggota(
                 navigateBack = { navController.popBackStack() }
             )
+        }
+
+        composable(DestinasiEntryBuku.route){
+            AddBuku(navigateBack = { navController.popBackStack() })
         }
     }
 }
