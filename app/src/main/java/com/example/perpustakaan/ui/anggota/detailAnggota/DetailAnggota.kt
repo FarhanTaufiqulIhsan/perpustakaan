@@ -6,11 +6,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -29,6 +33,8 @@ import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.DetailUIStateAnggota
 import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.toAnggota
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 object DetailDestinationAnggota : DestinasiNavigasi {
     override val route = "item_details_anggota"
@@ -37,6 +43,7 @@ object DetailDestinationAnggota : DestinasiNavigasi {
     val routeWithArgs = "$route/{$anggotaId}"
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailScreenAnggota(
     navigateToEditItemAnggota: (String) -> Unit,
@@ -45,7 +52,22 @@ fun DetailScreenAnggota(
     viewModel: DetailAnggotaViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val uiStateAnggota = viewModel.uiStateAnggota.collectAsState()
-    val coroutine = rememberCoroutineScope()
+    val coroutineScope = rememberCoroutineScope()
+
+    Scaffold() { innerPadding ->
+        ItemDetailsBodyAnggota(
+            detailUIStateAnggota = uiStateAnggota.value,
+            onDeleteAnggota = {
+                coroutineScope.launch {
+                    viewModel.deleteAnggota()
+                    navigateBack()
+                }
+            },
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
+        )
+    }
 }
 
 @Composable
