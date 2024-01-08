@@ -129,6 +129,7 @@ fun ListAnggota(
                     .fillMaxWidth()
                     .clickable { onItemClick(anggota) }
             )
+            Spacer(modifier = Modifier.padding(8.dp))
         }
     }
 }
