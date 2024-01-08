@@ -8,6 +8,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 
 object DetailDestinationAnggota : DestinasiNavigasi {
@@ -16,6 +17,12 @@ object DetailDestinationAnggota : DestinasiNavigasi {
     const val anggotaId = "itemAnggotaId"
     val routeWithArgs = "$route/{$anggotaId}"
 }
+
+@Composable
+fun ItemDetails(
+    anggota: Anggota,
+    modifier: Modifier = Modifier
+) {}
 
 @Composable
 private fun ItemDetailsRowAnggota(
