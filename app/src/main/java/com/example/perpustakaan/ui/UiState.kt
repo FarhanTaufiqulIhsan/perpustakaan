@@ -74,7 +74,9 @@ fun Buku.toUIStateBuku(): AddUIStateBuku = AddUIStateBuku(
 fun Anggota.toUIStateAnggota(): AddUIStateAnggota = AddUIStateAnggota(
     addEventAnggota = this.toDetailAnggota()
 )
-
+data class DetailUIStateBuku(
+    val addEventBuku: AddEventBuku = AddEventBuku()
+)
 data class DetailUIStateAnggota(
     val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
