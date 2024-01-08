@@ -32,4 +32,8 @@ class DetailBukuViewModel (
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = DetailUIStateBuku()
             )
+
+    suspend fun deleteBuku(){
+        repository.delete(bukuId)
+    }
 }
