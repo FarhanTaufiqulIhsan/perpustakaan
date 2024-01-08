@@ -12,7 +12,7 @@ import com.example.perpustakaan.navigation.DestinasiNavigasi
 
 object DetailDestinationBuku : DestinasiNavigasi{
     override val route = "item_details_buku"
-    override val titleRes = "Detail Anggota"
+    override val titleRes = "Detail Buku"
     const val bukuId = "itemBukuId"
     val routeWithArgs = "$route/{$bukuId}"
 
