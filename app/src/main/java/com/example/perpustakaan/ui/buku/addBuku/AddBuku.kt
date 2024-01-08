@@ -24,6 +24,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AddEventBuku
 import com.example.perpustakaan.ui.AddUIStateBuku
+import com.example.perpustakaan.ui.BukuTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
@@ -43,7 +44,15 @@ fun AddBuku(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection)
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            BukuTopAppBar(
+                title = DestinasiEntry.titleRes,
+                canNavigateBack = true,
+                scrollBehavior = scrollBehavior,
+                navigateUp = navigateBack
+            )
+        }
     ) { innerPadding ->
         EntryBodyBuku(
             addUIStateBuku = addBukuViewModel.addUIStateBuku,
