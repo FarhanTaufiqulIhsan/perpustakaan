@@ -23,7 +23,7 @@ class HalamanAnggotaViewModel(private val anggotaRepository: AnggotaRepository) 
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val homeUIState: StateFlow<HomeUIStateAnggota> = anggotaRepository.getAll()
+    val homeUIStateAnggota: StateFlow<HomeUIStateAnggota> = anggotaRepository.getAll()
         .filterNotNull()
         .map {
             HomeUIStateAnggota (listAnggota = it.toList(), it.size)

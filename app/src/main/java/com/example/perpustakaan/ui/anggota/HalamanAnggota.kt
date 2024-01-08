@@ -75,7 +75,7 @@ fun AnggotaScreen(
             }
         }
         ) { innerPadding ->
-        val uiStateAnggota by viewModel.homeUIState.collectAsState()
+        val uiStateAnggota by viewModel.homeUIStateAnggota.collectAsState()
         BodyHomeAnggota(
             itemAnggota = uiStateAnggota.listAnggota,
             modifier = Modifier

@@ -25,7 +25,7 @@ class HalamanBukuViewModel(private val bukuRepository: BukuRepository) : ViewMod
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val homeUIState: StateFlow<HomeUIStateBuku> = bukuRepository.getAll()
+    val homeUIStateBuku: StateFlow<HomeUIStateBuku> = bukuRepository.getAll()
         .filterNotNull()
         .map {
             HomeUIStateBuku (listBuku = it.toList(), it.size)
