@@ -61,7 +61,9 @@ fun AddEventAnggota.toAnggota() = Anggota(
     jk = jk,
     nohp = nohp
 )
-
+data class AddUIStateBuku(
+    val addEventBuku: AddEventBuku = AddEventBuku()
+)
 data class AddUIStateAnggota(
     val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
