@@ -27,7 +27,15 @@ data class AddEventBuku(
     val tahunterbit: String = "",
     val kategori: String = ""
 )
-
+fun Buku.toDetailBuku(): AddEventBuku =
+    AddEventBuku(
+        id = id,
+        judul = judul,
+        pengarang = pengarang,
+        penerbit = penerbit,
+        tahunterbit = tahunterbit,
+        kategori = kategori
+    )
 fun Anggota.toDetailAnggota(): AddEventAnggota =
     AddEventAnggota(
         id = id,
