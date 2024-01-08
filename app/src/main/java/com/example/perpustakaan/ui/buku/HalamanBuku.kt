@@ -34,6 +34,14 @@ fun BukuScreen(
 ) {}
 
 @Composable
+fun ListBuku(
+    itemBuku: List<Buku>,
+    modifier: Modifier = Modifier,
+    onItemClick: (Buku) -> Unit
+){
+
+}
+@Composable
 fun DataBuku(
     buku: Buku,
     modifier: Modifier = Modifier
