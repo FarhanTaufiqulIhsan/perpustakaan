@@ -58,7 +58,7 @@ private fun ItemDetailsBodyAnggota(
         }
 
         if (deleteConfirmationRequiredAnggota) {
-            DeleteConfirmationDialog(
+            DeleteConfirmationDialogAnggota(
                 onDeleteConfirmAnggota = {
                     deleteConfirmationRequiredAnggota = false
                     onDeleteAnggota()
@@ -137,7 +137,7 @@ private fun ItemDetailsRowAnggota(
 }
 
 @Composable
-private fun DeleteConfirmationDialog(
+private fun DeleteConfirmationDialogAnggota(
     onDeleteConfirmAnggota: () -> Unit,
     onDeleteCancelAnggota: () -> Unit,
     modifier: Modifier = Modifier
