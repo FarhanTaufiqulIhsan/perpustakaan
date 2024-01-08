@@ -2,12 +2,12 @@ package com.example.perpustakaan.ui
 
 import com.example.perpustakaan.model.Anggota
 
-data class HomeUIState(
+data class HomeUIStateAnggota(
     val listAnggota: List<Anggota> = listOf(),
     val dataLength: Int = 0
 )
 
-data class AddEvent(
+data class AddEventAnggota(
     val id: String = "",
     val nama: String = "",
     val alamat: String = "",
@@ -15,8 +15,8 @@ data class AddEvent(
     val nohp: String = ""
 )
 
-fun Anggota.toDetailAnggota(): AddEvent =
-    AddEvent(
+fun Anggota.toDetailAnggota(): AddEventAnggota =
+    AddEventAnggota(
         id = id,
         nama = nama,
         alamat = alamat,
@@ -24,7 +24,7 @@ fun Anggota.toDetailAnggota(): AddEvent =
         nohp = nohp
     )
 
-fun AddEvent.toAnggota() = Anggota(
+fun AddEventAnggota.toAnggota() = Anggota(
     id = id,
     nama = nama,
     alamat = alamat,
@@ -32,14 +32,14 @@ fun AddEvent.toAnggota() = Anggota(
     nohp = nohp
 )
 
-data class AddUIState(
-    val addEvent: AddEvent = AddEvent(),
+data class AddUIStateAnggota(
+    val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
 
-fun Anggota.toUIStateAnggota(): AddUIState = AddUIState(
-    addEvent = this.toDetailAnggota()
+fun Anggota.toUIStateAnggota(): AddUIStateAnggota = AddUIStateAnggota(
+    addEventAnggota = this.toDetailAnggota()
 )
 
-data class DetailUIState(
-    val addEvent: AddEvent = AddEvent(),
+data class DetailUIStateAnggota(
+    val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )

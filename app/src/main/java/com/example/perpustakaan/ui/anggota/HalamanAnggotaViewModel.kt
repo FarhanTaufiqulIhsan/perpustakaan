@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.perpustakaan.data.AnggotaRepository
 import com.example.perpustakaan.model.Anggota
-import com.example.perpustakaan.ui.HomeUIState
+import com.example.perpustakaan.ui.HomeUIStateAnggota
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -23,14 +23,14 @@ class HalamanAnggotaViewModel(private val anggotaRepository: AnggotaRepository) 
         private const val TIMEOUT_MILLIS = 5_000L
     }
 
-    val homeUIState: StateFlow<HomeUIState> = anggotaRepository.getAll()
+    val homeUIState: StateFlow<HomeUIStateAnggota> = anggotaRepository.getAll()
         .filterNotNull()
         .map {
-            HomeUIState (listAnggota = it.toList(), it.size)
+            HomeUIStateAnggota (listAnggota = it.toList(), it.size)
         }
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
-            initialValue = HomeUIState()
+            initialValue = HomeUIStateAnggota()
         )
 }
