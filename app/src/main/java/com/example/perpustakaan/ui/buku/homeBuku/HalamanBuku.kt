@@ -47,7 +47,7 @@ object DestinasiHomeBuku: DestinasiNavigasi{
 fun BukuScreen(
     navigateToItemEntryBuku: () -> Unit,
     modifier: Modifier = Modifier,
-    onDetailClick: (String) -> Unit = {},
+    onDetailClickBuku: (String) -> Unit = {},
     viewModel: HalamanBukuViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
@@ -63,7 +63,7 @@ fun BukuScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntryBuku,
+                onClick = {navigateToItemEntryBuku()},
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier.padding(18.dp)
                 ) {
@@ -80,7 +80,7 @@ fun BukuScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            onBukuClick = onDetailClick
+            onBukuClick = onDetailClickBuku
         )
     }
 }
@@ -127,6 +127,7 @@ fun ListBuku(
                     .fillMaxWidth()
                     .clickable { onItemClick(buku) }
             )
+            Spacer(modifier = Modifier.padding(8.dp))
         }
     }
 }

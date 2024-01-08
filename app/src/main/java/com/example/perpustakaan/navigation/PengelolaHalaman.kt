@@ -54,7 +54,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryBuku = {
                     navController.navigate(DestinasiEntryBuku.route)
                 },
-                onDetailClick = { }
+                onDetailClickBuku = { }
             )
         }
 
