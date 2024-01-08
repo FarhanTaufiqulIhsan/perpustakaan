@@ -45,6 +45,15 @@ fun Anggota.toDetailAnggota(): AddEventAnggota =
         nohp = nohp
     )
 
+fun AddEventBuku.toBuku() = Buku(
+    id = id,
+    judul = judul,
+    pengarang = pengarang,
+    penerbit = penerbit,
+    tahunterbit = tahunterbit,
+    kategori = kategori
+)
+
 fun AddEventAnggota.toAnggota() = Anggota(
     id = id,
     nama = nama,
