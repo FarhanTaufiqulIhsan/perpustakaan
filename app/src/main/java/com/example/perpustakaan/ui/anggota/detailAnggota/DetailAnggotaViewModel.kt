@@ -32,4 +32,8 @@ class DetailAnggotaViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = DetailUIStateAnggota()
             )
+
+    suspend fun deleteAnggota() {
+        repository.delete(anggotaId)
+    }
 }
