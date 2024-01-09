@@ -8,10 +8,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
@@ -30,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
+import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.DetailUIStateAnggota
 import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.toAnggota
@@ -54,7 +59,26 @@ fun DetailScreenAnggota(
     val uiStateAnggota = viewModel.uiStateAnggota.collectAsState()
     val coroutineScope = rememberCoroutineScope()
 
-    Scaffold() { innerPadding ->
+    Scaffold(
+        topBar = {
+            AnggotaTopAppBar(
+                title = DetailDestinationAnggota.titleRes,
+                canNavigateBack = true,
+                navigateUp = navigateBack
+            )
+        }, floatingActionButton = {
+            FloatingActionButton(
+                onClick = { navigateToEditItemAnggota(uiStateAnggota.value.addEventAnggota.id) },
+                shape = MaterialTheme.shapes.medium,
+                modifier = Modifier.padding(18.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = "",
+                )
+            }
+        }
+    ) { innerPadding ->
         ItemDetailsBodyAnggota(
             detailUIStateAnggota = uiStateAnggota.value,
             onDeleteAnggota = {
