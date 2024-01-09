@@ -10,6 +10,7 @@ import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.detailAnggota.DetailAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.homeAnggota.HalamanAnggotaViewModel
 import com.example.perpustakaan.ui.buku.addBuku.AddBukuViewModel
+import com.example.perpustakaan.ui.buku.detailBuku.DetailBukuViewModel
 import com.example.perpustakaan.ui.buku.homeBuku.HalamanBukuViewModel
 
 fun CreationExtras.aplikasiPerpus(): PerpusAplication =
@@ -38,6 +39,12 @@ object PenyediaViewModel {
         }
         initializer {
             AddBukuViewModel(aplikasiPerpus().container.bukuRepository)
+        }
+        initializer {
+            DetailBukuViewModel(
+                createSavedStateHandle(),
+                aplikasiPerpus().container.bukuRepository
+            )
         }
     }
 }
