@@ -7,7 +7,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.perpustakaan.data.AnggotaRepository
+import com.example.perpustakaan.ui.AddEventAnggota
 import com.example.perpustakaan.ui.AddUIStateAnggota
+import com.example.perpustakaan.ui.toAnggota
 import com.example.perpustakaan.ui.toUIStateAnggota
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -30,5 +32,9 @@ class EditAnggotaViewModel(
                     .first()
                     .toUIStateAnggota()
         }
+    }
+
+    fun updateUIStateAnggota(addEventAnggota: AddEventAnggota) {
+        anggotaUIState = anggotaUIState.copy(addEventAnggota = addEventAnggota)
     }
 }
