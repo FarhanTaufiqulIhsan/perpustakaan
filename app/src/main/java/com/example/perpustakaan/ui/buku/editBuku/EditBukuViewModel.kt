@@ -7,6 +7,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.perpustakaan.data.BukuRepository
+import com.example.perpustakaan.ui.AddEventBuku
 import com.example.perpustakaan.ui.AddUIStateBuku
 import com.example.perpustakaan.ui.toUIStateBuku
 import kotlinx.coroutines.flow.filterNotNull
@@ -30,5 +31,9 @@ class EditBukuViewModel (
                     .first()
                     .toUIStateBuku()
         }
+    }
+
+    fun updateUIStateBuku(addEventBuku: AddEventBuku){
+        bukuUIState = bukuUIState.copy(addEventBuku = addEventBuku)
     }
 }
