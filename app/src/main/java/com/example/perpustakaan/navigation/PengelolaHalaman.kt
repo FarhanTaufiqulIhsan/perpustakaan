@@ -3,11 +3,15 @@ package com.example.perpustakaan.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggota
 import com.example.perpustakaan.ui.anggota.addAnggota.DestinasiEntryAnggota
+import com.example.perpustakaan.ui.anggota.detailAnggota.DetailDestinationAnggota
+import com.example.perpustakaan.ui.anggota.detailAnggota.DetailScreenAnggota
 import com.example.perpustakaan.ui.anggota.homeAnggota.AnggotaScreen
 import com.example.perpustakaan.ui.anggota.homeAnggota.DestinasiHomeAnggota
 import com.example.perpustakaan.ui.buku.addBuku.AddBuku
@@ -46,8 +50,25 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryAnggota = {
                     navController.navigate(DestinasiEntryAnggota.route)
                 },
-                onDetailClickAnggota = { }
+                onDetailClickAnggota = { itemIdAnggota ->
+                    navController.navigate("${DetailDestinationAnggota.route}/$itemIdAnggota")
+                    println("itemIdAnggota: $itemIdAnggota")
+                }
             )
+        }
+
+        composable(
+            route = DetailDestinationAnggota.routeWithArgs,
+            arguments = listOf(navArgument(DetailDestinationAnggota.anggotaId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val anggotaId = backStackEntry.arguments?.getString(DetailDestinationAnggota.anggotaId)
+            anggotaId?.let {
+                DetailScreenAnggota(
+                    navigateToEditItemAnggota = {},
+                    navigateBack = { /*TODO*/ })
+            }
         }
 
         composable(DestinasiHomeBuku.route) {

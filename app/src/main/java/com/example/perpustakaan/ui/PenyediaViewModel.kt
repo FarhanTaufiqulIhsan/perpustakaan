@@ -1,11 +1,13 @@
 package com.example.perpustakaan.ui
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.perpustakaan.PerpusAplication
 import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggotaViewModel
+import com.example.perpustakaan.ui.anggota.detailAnggota.DetailAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.homeAnggota.HalamanAnggotaViewModel
 import com.example.perpustakaan.ui.buku.addBuku.AddBukuViewModel
 import com.example.perpustakaan.ui.buku.homeBuku.HalamanBukuViewModel
@@ -22,6 +24,13 @@ object PenyediaViewModel {
 
         initializer {
             AddAnggotaViewModel(aplikasiPerpus().container.anggotaRepository)
+        }
+
+        initializer {
+            DetailAnggotaViewModel(
+                createSavedStateHandle(),
+                aplikasiPerpus().container.anggotaRepository
+            )
         }
 
         initializer {
