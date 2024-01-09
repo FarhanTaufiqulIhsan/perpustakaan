@@ -17,6 +17,7 @@ import com.example.perpustakaan.ui.anggota.homeAnggota.DestinasiHomeAnggota
 import com.example.perpustakaan.ui.buku.addBuku.AddBuku
 import com.example.perpustakaan.ui.buku.addBuku.DestinasiEntryBuku
 import com.example.perpustakaan.ui.buku.detailBuku.DetailDestinationBuku
+import com.example.perpustakaan.ui.buku.detailBuku.DetailScreenBuku
 import com.example.perpustakaan.ui.buku.homeBuku.BukuScreen
 import com.example.perpustakaan.ui.buku.homeBuku.DestinasiHomeBuku
 import com.example.perpustakaan.ui.halaman.DestinasiHome
@@ -92,7 +93,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         ){backStackEntry ->
             val bukuId = backStackEntry.arguments?.getString(DetailDestinationBuku.bukuId)
             bukuId?.let {
-                DetailScreenAnggota(navigateToEditItemAnggota = {}, navigateBack = { /*TODO*/ })
+                DetailScreenBuku(navigateToEditItemBuku = {}, navigateBack = { /*TODO*/ })
             }
 
         }
