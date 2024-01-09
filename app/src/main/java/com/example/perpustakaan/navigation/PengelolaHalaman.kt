@@ -16,6 +16,7 @@ import com.example.perpustakaan.ui.anggota.homeAnggota.AnggotaScreen
 import com.example.perpustakaan.ui.anggota.homeAnggota.DestinasiHomeAnggota
 import com.example.perpustakaan.ui.buku.addBuku.AddBuku
 import com.example.perpustakaan.ui.buku.addBuku.DestinasiEntryBuku
+import com.example.perpustakaan.ui.buku.detailBuku.DetailDestinationBuku
 import com.example.perpustakaan.ui.buku.homeBuku.BukuScreen
 import com.example.perpustakaan.ui.buku.homeBuku.DestinasiHomeBuku
 import com.example.perpustakaan.ui.halaman.DestinasiHome
@@ -76,7 +77,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryBuku = {
                     navController.navigate(DestinasiEntryBuku.route)
                 },
-                onDetailClickBuku = { }
+                onDetailClickBuku = { itemIdBuku ->
+                    navController.navigate("${DetailDestinationBuku.route}/$itemIdBuku")
+                    println("itemIdBuku: $itemIdBuku")
+                }
             )
         }
 
