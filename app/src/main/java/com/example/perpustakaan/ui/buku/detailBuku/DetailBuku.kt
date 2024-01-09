@@ -21,9 +21,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Buku
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.DetailUIStateBuku
+import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.toBuku
 
 object DetailDestinationBuku : DestinasiNavigasi{
@@ -31,6 +33,16 @@ object DetailDestinationBuku : DestinasiNavigasi{
     override val titleRes = "Detail Buku"
     const val bukuId = "itemBukuId"
     val routeWithArgs = "$route/{$bukuId}"
+
+}
+
+@Composable
+fun DetailScreenBuku(
+    navigateToEditItemBuku: (String) -> Unit,
+    navigateBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    viewModel: DetailBukuViewModel = viewModel(factory = PenyediaViewModel.Factory)
+){
 
 }
 
