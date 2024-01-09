@@ -69,7 +69,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             anggotaId?.let {
                 DetailScreenAnggota(
                     navigateToEditItemAnggota = {},
-                    navigateBack = { /*TODO*/ })
+                    navigateBack = { navController.popBackStack() })
             }
         }
 
