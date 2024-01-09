@@ -37,4 +37,8 @@ class EditAnggotaViewModel(
     fun updateUIStateAnggota(addEventAnggota: AddEventAnggota) {
         anggotaUIState = anggotaUIState.copy(addEventAnggota = addEventAnggota)
     }
+
+    suspend fun updateAnggota() {
+        repository.update(anggotaUIState.addEventAnggota.toAnggota())
+    }
 }
