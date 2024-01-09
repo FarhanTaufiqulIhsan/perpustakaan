@@ -73,6 +73,12 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             }
         }
 
+        composable(DestinasiEntryAnggota.route) {
+            AddAnggota(
+                navigateBack = { navController.popBackStack() }
+            )
+        }
+
         composable(DestinasiHomeBuku.route) {
             BukuScreen(
                 navigateToItemEntryBuku = {
@@ -96,12 +102,6 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 DetailScreenBuku(navigateToEditItemBuku = {}, navigateBack = { /*TODO*/ })
             }
 
-        }
-
-        composable(DestinasiEntryAnggota.route) {
-            AddAnggota(
-                navigateBack = { navController.popBackStack() }
-            )
         }
 
         composable(DestinasiEntryBuku.route){
