@@ -12,6 +12,8 @@ import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggota
 import com.example.perpustakaan.ui.anggota.addAnggota.DestinasiEntryAnggota
 import com.example.perpustakaan.ui.anggota.detailAnggota.DetailDestinationAnggota
 import com.example.perpustakaan.ui.anggota.detailAnggota.DetailScreenAnggota
+import com.example.perpustakaan.ui.anggota.editAnggota.EditDestinationAnggota
+import com.example.perpustakaan.ui.anggota.editAnggota.EditScreenAnggota
 import com.example.perpustakaan.ui.anggota.homeAnggota.AnggotaScreen
 import com.example.perpustakaan.ui.anggota.homeAnggota.DestinasiHomeAnggota
 import com.example.perpustakaan.ui.buku.addBuku.AddBuku
@@ -68,7 +70,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             val anggotaId = backStackEntry.arguments?.getString(DetailDestinationAnggota.anggotaId)
             anggotaId?.let {
                 DetailScreenAnggota(
-                    navigateToEditItemAnggota = {},
+                    navigateToEditItemAnggota = {
+                        navController.navigate("${EditDestinationAnggota.route}/$anggotaId")
+                        println("anggotaId: $anggotaId")
+                    },
                     navigateBack = { navController.popBackStack() })
             }
         }
@@ -77,6 +82,20 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             AddAnggota(
                 navigateBack = { navController.popBackStack() }
             )
+        }
+
+        composable(
+            route = EditDestinationAnggota.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationAnggota.anggotaId) {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val anggotaId = backStackEntry.arguments?.getString(EditDestinationAnggota.anggotaId)
+            anggotaId?.let {
+                EditScreenAnggota(
+                    navigateBackAnggota = { navController.popBackStack() },
+                    onNavigateUpAnggota = { navController.navigateUp() })
+            }
         }
 
         composable(DestinasiHomeBuku.route) {
