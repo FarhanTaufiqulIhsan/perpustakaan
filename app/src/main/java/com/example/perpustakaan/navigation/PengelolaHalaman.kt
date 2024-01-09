@@ -84,6 +84,19 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             )
         }
 
+        composable(
+            route = DetailDestinationBuku.routeWithArgs,
+            arguments = listOf(navArgument(DetailDestinationBuku.bukuId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->
+            val bukuId = backStackEntry.arguments?.getString(DetailDestinationBuku.bukuId)
+            bukuId?.let {
+                DetailScreenAnggota(navigateToEditItemAnggota = {}, navigateBack = { /*TODO*/ })
+            }
+
+        }
+
         composable(DestinasiEntryAnggota.route) {
             AddAnggota(
                 navigateBack = { navController.popBackStack() }
