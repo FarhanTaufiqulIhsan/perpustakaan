@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.perpustakaan.PerpusAplication
 import com.example.perpustakaan.ui.anggota.addAnggota.AddAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.detailAnggota.DetailAnggotaViewModel
+import com.example.perpustakaan.ui.anggota.editAnggota.EditAnggotaViewModel
 import com.example.perpustakaan.ui.anggota.homeAnggota.HalamanAnggotaViewModel
 import com.example.perpustakaan.ui.buku.addBuku.AddBukuViewModel
 import com.example.perpustakaan.ui.buku.detailBuku.DetailBukuViewModel
@@ -29,6 +30,13 @@ object PenyediaViewModel {
 
         initializer {
             DetailAnggotaViewModel(
+                createSavedStateHandle(),
+                aplikasiPerpus().container.anggotaRepository
+            )
+        }
+
+        initializer {
+            EditAnggotaViewModel(
                 createSavedStateHandle(),
                 aplikasiPerpus().container.anggotaRepository
             )
