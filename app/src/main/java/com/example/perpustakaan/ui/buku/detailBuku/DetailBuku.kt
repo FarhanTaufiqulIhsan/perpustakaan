@@ -167,7 +167,7 @@ fun ItemDetailsBuku(
 
             ItemDetailsRowBuku(
                 labelResIDBuku = "Penerbit",
-                itemDetailBuku = buku.tahunterbit,
+                itemDetailBuku = buku.penerbit,
                 modifier = Modifier.padding(
                     horizontal = 12.dp
                 )
