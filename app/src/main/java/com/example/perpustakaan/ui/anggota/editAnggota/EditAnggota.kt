@@ -1,6 +1,7 @@
 package com.example.perpustakaan.ui.anggota.editAnggota
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 
@@ -16,4 +17,6 @@ fun EditScreenAnggota(
     navigateBackAnggota: () -> Unit,
     onNavigateUpAnggota: () -> Unit,
     modifier: Modifier = Modifier,
-) {}
+) {
+    val coroutineScope = rememberCoroutineScope()
+}
