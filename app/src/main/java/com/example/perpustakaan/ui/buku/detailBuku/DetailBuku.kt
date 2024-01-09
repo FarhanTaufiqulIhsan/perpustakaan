@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.example.perpustakaan.model.Buku
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.DetailUIStateBuku
+import com.example.perpustakaan.ui.toBuku
 
 object DetailDestinationBuku : DestinasiNavigasi{
     override val route = "item_details_buku"
@@ -43,6 +44,10 @@ private fun ItemDetailsBodyBuku(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         var deleteConfirmationRequiredBuku by rememberSaveable { mutableStateOf(false)}
+        ItemDetailsBuku(
+            buku = detailUIStateBuku.addEventBuku.toBuku(),
+            modifier = Modifier.fillMaxWidth()
+        )
     }
 }
 
