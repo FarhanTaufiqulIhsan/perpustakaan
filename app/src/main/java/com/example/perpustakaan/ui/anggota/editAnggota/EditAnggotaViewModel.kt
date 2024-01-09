@@ -14,4 +14,6 @@ class EditAnggotaViewModel(
 ) : ViewModel() {
     var anggotaUIState by mutableStateOf(AddUIStateAnggota())
         private set
+
+    private val anggotaId: String = checkNotNull(savedStateHandle[EditDestinationAnggota.anggotaId])
 }
