@@ -20,6 +20,8 @@ import com.example.perpustakaan.ui.buku.addBuku.AddBuku
 import com.example.perpustakaan.ui.buku.addBuku.DestinasiEntryBuku
 import com.example.perpustakaan.ui.buku.detailBuku.DetailDestinationBuku
 import com.example.perpustakaan.ui.buku.detailBuku.DetailScreenBuku
+import com.example.perpustakaan.ui.buku.editBuku.EditDestinationBuku
+import com.example.perpustakaan.ui.buku.editBuku.EditScreenBuku
 import com.example.perpustakaan.ui.buku.homeBuku.BukuScreen
 import com.example.perpustakaan.ui.buku.homeBuku.DestinasiHomeBuku
 import com.example.perpustakaan.ui.halaman.DestinasiHome
@@ -95,6 +97,20 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 EditScreenAnggota(
                     navigateBackAnggota = { navController.popBackStack() },
                     onNavigateUpAnggota = { navController.navigateUp() })
+            }
+        }
+
+        composable(
+         route = EditDestinationBuku.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationBuku.bukuId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->
+            val bukuId = backStackEntry.arguments?.getString(EditDestinationBuku.bukuId)
+            bukuId?.let{
+                EditScreenBuku(
+                    navigateBackBuku = { navController.popBackStack() },
+                    onNavigateUpBuku = { navController.navigateUp() })
             }
         }
 
