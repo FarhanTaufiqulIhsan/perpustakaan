@@ -134,7 +134,10 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         ){backStackEntry ->
             val bukuId = backStackEntry.arguments?.getString(DetailDestinationBuku.bukuId)
             bukuId?.let {
-                DetailScreenBuku(navigateToEditItemBuku = {}, navigateBack = { /*TODO*/ })
+                DetailScreenBuku(navigateToEditItemBuku = {
+                    navController.navigate("${EditDestinationBuku.route}/$bukuId")
+                    println("bukuId: $bukuId")},
+                    navigateBack = { navController.popBackStack() })
             }
 
         }
