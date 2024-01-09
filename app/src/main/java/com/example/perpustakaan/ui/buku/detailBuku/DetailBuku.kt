@@ -57,6 +57,16 @@ private fun ItemDetailsBodyBuku(
             ) {
                 Text("Delete")
         }
+
+        if(deleteConfirmationRequiredBuku){
+            DeleteConfirmationDialogBuku(
+                onDeleteConfirmBuku = {
+                    deleteConfirmationRequiredBuku = false
+                    onDeleteBuku()},
+                onDeletecancelmBuku = { deleteConfirmationRequiredBuku = false },
+                modifier = Modifier.padding(12.dp)
+                )
+        }
     }
 }
 
