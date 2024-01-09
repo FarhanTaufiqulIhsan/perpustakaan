@@ -38,7 +38,7 @@ import com.example.perpustakaan.ui.AnggotaTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 
 object DestinasiHomeAnggota : DestinasiNavigasi {
-    override val route = "home"
+    override val route = "home anggota"
     override val titleRes = "Anggota"
 }
 

@@ -29,8 +29,8 @@ import com.example.perpustakaan.ui.PenyediaViewModel
 import kotlinx.coroutines.launch
 
 object DestinasiEntryAnggota : DestinasiNavigasi {
-    override val route = "item_entry"
-    override val titleRes = "Entry_Anggota"
+    override val route = "item entry anggota"
+    override val titleRes = "Entry Anggota"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
