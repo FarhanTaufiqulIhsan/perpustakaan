@@ -3,6 +3,7 @@ package com.example.perpustakaan.ui
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Buku
 import com.example.perpustakaan.model.Peminjaman
+import org.threeten.bp.LocalDate
 
 data class HomeUIStateAnggota(
     val listAnggota: List<Anggota> = listOf(),
@@ -32,6 +33,15 @@ data class AddEventBuku(
     val tahunterbit: String = "",
     val kategori: String = ""
 )
+
+data class AddEventPeminjaman(
+    val id: String = "",
+    val anggota: Anggota = Anggota(),
+    val buku: Buku = Buku(),
+    val tanggalPinjam: LocalDate = LocalDate.now(),
+    val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
+)
+
 fun Buku.toDetailBuku(): AddEventBuku =
     AddEventBuku(
         id = id,
