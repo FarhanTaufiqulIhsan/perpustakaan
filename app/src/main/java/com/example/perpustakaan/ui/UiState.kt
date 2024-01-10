@@ -2,6 +2,7 @@ package com.example.perpustakaan.ui
 
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Buku
+import com.example.perpustakaan.model.Peminjaman
 
 data class HomeUIStateAnggota(
     val listAnggota: List<Anggota> = listOf(),
@@ -9,6 +10,10 @@ data class HomeUIStateAnggota(
 )
 data class HomeUIStateBuku(
     val listBuku: List<Buku> = listOf(),
+    val dataLength: Int = 0
+)
+data class HomeUIStatePeminjaman(
+    val listPeminjaman: List<Peminjaman> = listOf(),
     val dataLength: Int = 0
 )
 data class AddEventAnggota(
