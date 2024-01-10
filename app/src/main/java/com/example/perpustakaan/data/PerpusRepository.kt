@@ -133,7 +133,15 @@ class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : Pemin
     }.flowOn(Dispatchers.IO)
 
     override suspend fun save(peminjaman: Peminjaman): String {
-        TODO("Not yet implemented")
+        return try {
+            val documentReference = firestore.collection("Peminjaman").add(peminjaman).await()
+            firestore.collection("Peminjaman").document(documentReference.id)
+                .set(peminjaman.copy(id = documentReference.id))
+            "Berhasil + ${documentReference.id}"
+        } catch (e: Exception) {
+            Log.w(ContentValues.TAG, "Error adding document", e)
+            "Gagal $e"
+        }
     }
 
     override suspend fun update(peminjaman: Peminjaman) {
