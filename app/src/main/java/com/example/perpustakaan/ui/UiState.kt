@@ -111,6 +111,10 @@ fun Buku.toUIStateBuku(): AddUIStateBuku = AddUIStateBuku(
 fun Anggota.toUIStateAnggota(): AddUIStateAnggota = AddUIStateAnggota(
     addEventAnggota = this.toDetailAnggota()
 )
+
+fun Peminjaman.toUIStatePeminjaman(): AddUIStatePeminjaman = AddUIStatePeminjaman(
+    addEventPeminjaman = this.toDetailPeminjaman()
+)
 data class DetailUIStateBuku(
     val addEventBuku: AddEventBuku = AddEventBuku()
 )
