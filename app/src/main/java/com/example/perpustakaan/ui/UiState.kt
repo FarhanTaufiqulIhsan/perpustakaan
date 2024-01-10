@@ -60,6 +60,15 @@ fun Anggota.toDetailAnggota(): AddEventAnggota =
         nohp = nohp
     )
 
+fun Peminjaman.toDetailPeminjaman(): AddEventPeminjaman =
+    AddEventPeminjaman(
+        id = id,
+        anggota = anggota,
+        buku = buku,
+        tanggalPinjam = tanggalPinjam,
+        tanggalKembali = tanggalKembali
+    )
+
 fun AddEventBuku.toBuku() = Buku(
     id = id,
     judul = judul,
