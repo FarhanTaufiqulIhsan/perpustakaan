@@ -18,15 +18,45 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Peminjaman
 import com.example.perpustakaan.navigation.DestinasiNavigasi
+import com.example.perpustakaan.ui.anggota.homeAnggota.ListAnggota
 
 object DestinasiHomePeminjaman : DestinasiNavigasi {
     override val route = "home peminjaman"
     override val titleRes = "Peminjaman"
+}
+
+@Composable
+fun BodyHomePeminjaman(
+    itemPeminjaman: List<Peminjaman>,
+    modifier: Modifier = Modifier,
+    onPeminjamanClick: (String) -> Unit = {}
+) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+    ) {
+        if (itemPeminjaman.isEmpty()) {
+            Text(
+                text = "Tidak ada data Peminjaman",
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.titleLarge
+            )
+        } else {
+            ListPeminjaman(
+                itemPeminjaman = itemPeminjaman,
+                modifier = Modifier
+                    .padding(horizontal = 8.dp),
+                onItemClick = { onPeminjamanClick(it.id) }
+            )
+        }
+    }
 }
 
 @Composable
