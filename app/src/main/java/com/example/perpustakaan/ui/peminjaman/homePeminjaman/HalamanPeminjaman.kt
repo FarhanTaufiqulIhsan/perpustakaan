@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -22,15 +21,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Peminjaman
 import com.example.perpustakaan.navigation.DestinasiNavigasi
-import com.example.perpustakaan.ui.anggota.homeAnggota.ListAnggota
 
 object DestinasiHomePeminjaman : DestinasiNavigasi {
     override val route = "home peminjaman"
     override val titleRes = "Peminjaman"
 }
+
+@Composable
+fun PeminjamanScreen(
+    navigateToItemEntryPeminjaman: () -> Unit,
+    modifier: Modifier = Modifier,
+    onDetailClickPeminjaman: (String) -> Unit = {}
+) {}
 
 @Composable
 fun BodyHomePeminjaman(
