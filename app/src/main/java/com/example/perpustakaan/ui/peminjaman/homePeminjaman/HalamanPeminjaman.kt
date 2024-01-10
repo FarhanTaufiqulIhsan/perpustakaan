@@ -1,11 +1,14 @@
 package com.example.perpustakaan.ui.peminjaman.homePeminjaman
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Phone
@@ -30,8 +33,22 @@ object DestinasiHomePeminjaman : DestinasiNavigasi {
 fun ListPeminjaman(
     itemPeminjaman: List<Peminjaman>,
     modifier: Modifier = Modifier,
-    onItemClickPeminjaman: (Peminjaman) -> Unit
-) {}
+    onItemClick: (Peminjaman) -> Unit
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        this.items(itemPeminjaman, key = {it.id}) {peminjaman ->
+            DataPeminjaman(
+                peminjaman = peminjaman,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onItemClick(peminjaman) }
+            )
+            Spacer(modifier = Modifier.padding(8.dp))
+        }
+    }
+}
 
 @Composable
 fun DataPeminjaman(
