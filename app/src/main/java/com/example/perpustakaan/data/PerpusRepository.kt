@@ -149,7 +149,7 @@ class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : Pemin
     }
 
     override suspend fun delete(peminjamanId: String) {
-        TODO("Not yet implemented")
+        firestore.collection("Peminjaman").document(peminjamanId).delete().await()
     }
 
     override fun getPeminjamanById(peminjamanId: String): Flow<Peminjaman> {
