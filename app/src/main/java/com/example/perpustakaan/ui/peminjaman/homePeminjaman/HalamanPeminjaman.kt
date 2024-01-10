@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.perpustakaan.model.Peminjaman
 import com.example.perpustakaan.navigation.DestinasiNavigasi
+import com.example.perpustakaan.ui.PeminjamanTopAppBar
 import com.example.perpustakaan.ui.PenyediaViewModel
 
 object DestinasiHomePeminjaman : DestinasiNavigasi {
@@ -50,6 +51,13 @@ fun PeminjamanScreen(
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = {
+            PeminjamanTopAppBar(
+                title = "Peminjaman",
+                canNavigateBack = false,
+                scrollBehavior = scrollBehavior
+            )
+        }
         ) { innerPadding ->
         val uiStatePeminjaman by viewModel.homeUIStatePeminjaman.collectAsState()
         BodyHomePeminjaman(
