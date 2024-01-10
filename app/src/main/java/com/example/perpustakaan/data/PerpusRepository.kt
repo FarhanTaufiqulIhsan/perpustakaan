@@ -153,7 +153,10 @@ class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : Pemin
     }
 
     override fun getPeminjamanById(peminjamanId: String): Flow<Peminjaman> {
-        TODO("Not yet implemented")
+        return flow {
+            val snapshot = firestore.collection("Peminjaman").document(peminjamanId).get().await()
+            val peminjaman = snapshot.toObject(Peminjaman::class.java)
+            emit(peminjaman!!)
+        }.flowOn(Dispatchers.IO)
     }
-
 }
