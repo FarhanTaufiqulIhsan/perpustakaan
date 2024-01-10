@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Peminjaman
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 
@@ -24,6 +25,13 @@ object DestinasiHomePeminjaman : DestinasiNavigasi {
     override val route = "home peminjaman"
     override val titleRes = "Peminjaman"
 }
+
+@Composable
+fun ListPeminjaman(
+    itemPeminjaman: List<Peminjaman>,
+    modifier: Modifier = Modifier,
+    onItemClickPeminjaman: (Peminjaman) -> Unit
+) {}
 
 @Composable
 fun DataPeminjaman(
