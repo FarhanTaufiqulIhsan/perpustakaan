@@ -101,6 +101,10 @@ data class AddUIStateAnggota(
     val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
 
+data class AddUIStatePeminjaman(
+    val addEventPeminjaman: AddEventPeminjaman = AddEventPeminjaman()
+)
+
 fun Buku.toUIStateBuku(): AddUIStateBuku = AddUIStateBuku(
     addEventBuku = this.toDetailBuku()
 )
