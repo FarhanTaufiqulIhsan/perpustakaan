@@ -121,3 +121,6 @@ data class DetailUIStateBuku(
 data class DetailUIStateAnggota(
     val addEventAnggota: AddEventAnggota = AddEventAnggota(),
 )
+data class DetailUIStatePeminjaman(
+    val addEventPeminjaman: AddEventPeminjaman = AddEventPeminjaman()
+)
