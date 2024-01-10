@@ -145,7 +145,7 @@ class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : Pemin
     }
 
     override suspend fun update(peminjaman: Peminjaman) {
-        TODO("Not yet implemented")
+        firestore.collection("Peminjaman").document(peminjaman.id).set(peminjaman).await()
     }
 
     override suspend fun delete(peminjamanId: String) {
