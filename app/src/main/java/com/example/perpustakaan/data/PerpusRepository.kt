@@ -121,3 +121,31 @@ interface PeminjamanRepository {
     suspend fun delete(peminjamanId: String)
     fun getPeminjamanById(peminjamanId: String): Flow<Peminjaman>
 }
+
+class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : PeminjamanRepository {
+    override fun getAll(): Flow<List<Peminjaman>> = flow {
+        val snapshot = firestore.collection("Peminjaman")
+            .orderBy("id", Query.Direction.ASCENDING)
+            .get()
+            .await()
+        val peminjaman = snapshot.toObjects(Peminjaman::class.java)
+        emit(peminjaman)
+    }.flowOn(Dispatchers.IO)
+
+    override suspend fun save(peminjaman: Peminjaman): String {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun update(peminjaman: Peminjaman) {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun delete(peminjamanId: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun getPeminjamanById(peminjamanId: String): Flow<Peminjaman> {
+        TODO("Not yet implemented")
+    }
+
+}
