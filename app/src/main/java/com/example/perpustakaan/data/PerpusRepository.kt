@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.util.Log
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.model.Buku
+import com.example.perpustakaan.model.Peminjaman
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreKtxRegistrar
 import com.google.firebase.firestore.Query
@@ -111,4 +112,12 @@ class BukuRepositoryImpl(private val firestore: FirebaseFirestore) : BukuReposit
         }.flowOn(Dispatchers.IO)
     }
 
+}
+
+interface PeminjamanRepository {
+    fun getAll(): Flow<List<Peminjaman>>
+    suspend fun save(peminjaman: Peminjaman): String
+    suspend fun update(peminjaman: Peminjaman)
+    suspend fun delete(peminjamanId: String)
+    fun getPeminjamanById(peminjamanId: String): Flow<Peminjaman>
 }
