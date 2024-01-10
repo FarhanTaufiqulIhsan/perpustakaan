@@ -1,5 +1,7 @@
 package com.example.perpustakaan.model
 
+import org.threeten.bp.LocalDate
+
 data class Anggota(
     val id: String,
     val nama: String,
@@ -19,4 +21,14 @@ data class Buku(
     val kategori: String
 ){
     constructor(): this("","","","","","")
+}
+
+data class Peminjaman(
+    val id: String,
+    val anggota: Anggota,
+    val buku: Buku,
+    val tanggalPinjam: LocalDate = LocalDate.now(),
+    val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
+) {
+    constructor(): this("", Anggota(), Buku(), LocalDate.now(), LocalDate.now().plusDays(3))
 }
