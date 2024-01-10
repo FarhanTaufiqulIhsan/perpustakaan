@@ -85,6 +85,15 @@ fun AddEventAnggota.toAnggota() = Anggota(
     jk = jk,
     nohp = nohp
 )
+
+fun AddEventPeminjaman.toPeminjaman() = Peminjaman(
+    id = id,
+    anggota = anggota,
+    buku = buku,
+    tanggalPinjam = tanggalPinjam,
+    tanggalKembali = tanggalKembali
+)
+
 data class AddUIStateBuku(
     val addEventBuku: AddEventBuku = AddEventBuku()
 )
