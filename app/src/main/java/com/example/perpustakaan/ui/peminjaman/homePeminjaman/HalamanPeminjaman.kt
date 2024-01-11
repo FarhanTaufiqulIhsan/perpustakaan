@@ -148,7 +148,7 @@ fun DataPeminjaman(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = peminjaman.buku.judul,
+                    text = peminjaman.buku,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))
@@ -166,7 +166,7 @@ fun DataPeminjaman(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(
-                    text = peminjaman.anggota.nama,
+                    text = peminjaman.anggota,
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Spacer(Modifier.weight(1f))

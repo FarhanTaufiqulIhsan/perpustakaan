@@ -37,11 +37,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         modifier = Modifier
     ) {
         composable(DestinasiHome.route) {
-            HalamanHome (
-                onNextButtonClicked = {
-                    navController.navigate(DestinasiUtama.route)
-                },
-            )
+            HalamanHome(navController)
         }
 
         composable(DestinasiUtama.route) {
