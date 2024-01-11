@@ -13,7 +13,8 @@ Data relasi :
 Database yang digunakan adalah Firebase.
 
 # Use Case
-![Use Case Diagram1](https://github.com/FarhanTaufiqulIhsan/perpustakaan/assets/115075868/51c098d2-7bb1-46c2-b2e0-6138c4a7ac7b)
+![Use Case Diagram3](https://github.com/FarhanTaufiqulIhsan/perpustakaan/assets/115075868/af659505-66dc-4ff3-930a-0971b54d411e)
+
 
 * Add data buku = Admin dapat menambahkan data ke dalam data buku.
 * Read data buku = Admin dapat melihat data buku.
