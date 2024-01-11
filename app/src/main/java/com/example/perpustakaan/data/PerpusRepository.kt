@@ -125,7 +125,7 @@ interface PeminjamanRepository {
 class PeminjamanRepositoryImpl(private val firestore: FirebaseFirestore) : PeminjamanRepository {
     override fun getAll(): Flow<List<Peminjaman>> = flow {
         val snapshot = firestore.collection("Peminjaman")
-            .orderBy("id", Query.Direction.ASCENDING)
+            .orderBy("anggota", Query.Direction.ASCENDING)
             .get()
             .await()
         val peminjaman = snapshot.toObjects(Peminjaman::class.java)

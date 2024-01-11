@@ -36,8 +36,8 @@ data class AddEventBuku(
 
 data class AddEventPeminjaman(
     val id: String = "",
-    val anggota: Anggota = Anggota(),
-    val buku: Buku = Buku(),
+    val anggota: String = "",
+    val buku: String = "",
     val tanggalPinjam: LocalDate = LocalDate.now(),
     val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
 )

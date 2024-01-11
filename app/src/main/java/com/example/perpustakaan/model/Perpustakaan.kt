@@ -25,10 +25,10 @@ data class Buku(
 
 data class Peminjaman(
     val id: String,
-    val anggota: Anggota,
-    val buku: Buku,
+    val anggota: String,
+    val buku: String,
     val tanggalPinjam: LocalDate = LocalDate.now(),
     val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
 ) {
-    constructor(): this("", Anggota(), Buku(), LocalDate.now(), LocalDate.now().plusDays(3))
+    constructor(): this("", "", "", LocalDate.now(), LocalDate.now().plusDays(3))
 }
