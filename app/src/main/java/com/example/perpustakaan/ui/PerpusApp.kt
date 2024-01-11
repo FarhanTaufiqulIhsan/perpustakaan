@@ -16,6 +16,8 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.colorResource
+import com.example.perpustakaan.R
 import com.example.perpustakaan.navigation.PengelolaHalaman
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -72,6 +74,7 @@ fun BukuTopAppBar(
     CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
         scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(colorResource(id = R.color.lightbrown)),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {

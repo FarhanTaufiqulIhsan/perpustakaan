@@ -1,5 +1,7 @@
 package com.example.perpustakaan.ui.buku.editBuku
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -9,8 +11,11 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import com.example.perpustakaan.navigation.DestinasiNavigasi
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.perpustakaan.R
+import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.buku.addBuku.EntryBodyBuku
 import kotlinx.coroutines.launch
@@ -33,6 +38,13 @@ fun EditScreenBuku(
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold() { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg9),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         EntryBodyBuku(
             addUIStateBuku = viewModel.bukuUIState,
             onBukuValueChange = viewModel::updateUIStateBuku,

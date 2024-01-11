@@ -1,13 +1,16 @@
 package com.example.perpustakaan.ui.buku.addBuku
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -18,9 +21,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.perpustakaan.R
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AddEventBuku
 import com.example.perpustakaan.ui.AddUIStateBuku
@@ -54,6 +61,13 @@ fun AddBuku(
             )
         }
     ) { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg9),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         EntryBodyBuku(
             addUIStateBuku = addBukuViewModel.addUIStateBuku,
             onBukuValueChange = addBukuViewModel::updateAddUIStateBuku,
@@ -91,6 +105,7 @@ fun EntryBodyBuku(
         Button(
             onClick = onSaveClickBuku,
             shape = MaterialTheme.shapes.small,
+            colors = ButtonDefaults.buttonColors(colorResource(id = R.color.lightbrown)),
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(text = "Submit")

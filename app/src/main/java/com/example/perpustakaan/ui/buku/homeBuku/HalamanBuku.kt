@@ -1,7 +1,9 @@
 package com.example.perpustakaan.ui.buku.homeBuku
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,9 +31,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.perpustakaan.R
 import com.example.perpustakaan.model.Buku
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.BukuTopAppBar
@@ -76,14 +82,25 @@ fun BukuScreen(
             }
         }
     ){ innerPadding ->
-        val uiStateBuku by viewModel.homeUIStateBuku.collectAsState()
-        BodyHomeBuku(
-            itemBuku = uiStateBuku.listBuku,
+        Box(
             modifier = Modifier
-                .padding(innerPadding)
-                .fillMaxSize(),
-            onBukuClick = onDetailClickBuku
-        )
+                .fillMaxSize()
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.bg8),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            val uiStateBuku by viewModel.homeUIStateBuku.collectAsState()
+            BodyHomeBuku(
+                itemBuku = uiStateBuku.listBuku,
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                onBukuClick = onDetailClickBuku )
+        }
     }
 }
 
@@ -140,7 +157,8 @@ fun DataBuku(
 ){
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(colorResource(id = R.color.white))
     ) {
         Column(
             modifier = Modifier.padding(12.dp),
