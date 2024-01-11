@@ -3,9 +3,11 @@ package com.example.perpustakaan.ui.halaman
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,6 +22,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,8 +33,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
@@ -58,6 +62,45 @@ fun HalamanHome(
     auth = Firebase.auth
     var emailText by remember { mutableStateOf("") }
     var passwordText by remember { mutableStateOf("") }
+    
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ){
+        Image(
+            painter = painterResource(id = R.drawable.background3),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Selamat Datang",
+            color = colorResource(id = R.color.brown),
+            fontFamily = FontFamily.Serif,
+            fontSize = 40.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(top = 25.dp)
+        )
+        Text(
+            text = "Silahkan login !",
+            color = colorResource(id = R.color.brown),
+            fontFamily = FontFamily.Serif,
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(bottom = 50.dp, top = 20.dp)
+        )
+    }
 
     Column(
         modifier = Modifier
@@ -69,28 +112,43 @@ fun HalamanHome(
     ) {
         OutlinedTextField(value = emailText,
             onValueChange = { emailText = it },
-            label = { Text(text = "Email")},
+            label = { Text(text = "Email", color = colorResource(id = R.color.white))},
             singleLine = true,
             leadingIcon = {
                 IconButton(onClick = {}) {
                     Icon(
                         imageVector = Icons.Filled.Email,
-                        contentDescription = "Email Icon")
+                        contentDescription = "Email Icon",
+                        tint = colorResource(id = R.color.white)
+                        )
                 }
             },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                colorResource(id = R.color.white),
+                focusedBorderColor = colorResource(id = R.color.white),
+                unfocusedBorderColor = colorResource(id = R.color.lightgrey),
+            ),
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier.padding(vertical = 5.dp)
         )
         OutlinedTextField(value = passwordText,
             onValueChange = {passwordText = it},
-            label = { Text(text = "Password")},
+            label = { Text(text = "Password", color = colorResource(id = R.color.white))},
             visualTransformation = PasswordVisualTransformation(),
             singleLine = true,
             leadingIcon = {
                 IconButton(onClick = { }) {
-                    Icon(imageVector = Icons.Filled.Lock, contentDescription = "Pass Icon")
+                    Icon(imageVector = Icons.Filled.Lock,
+                        contentDescription = "Pass Icon",
+                        tint = colorResource(id = R.color.white)
+                    )
                 }
             },
+            colors = TextFieldDefaults.outlinedTextFieldColors(
+                colorResource(id = R.color.white),
+                focusedBorderColor = colorResource(id = R.color.white),
+                unfocusedBorderColor = colorResource(id = R.color.lightgrey),
+            ),
             shape = RoundedCornerShape(20.dp),
             modifier = Modifier.padding( vertical = 5.dp)
         )
@@ -110,11 +168,11 @@ fun HalamanHome(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp),
             colors = ButtonDefaults.buttonColors(
-                Color.Magenta
+                Color.White
             )
         )
         {
-            Text(text = "Sign in")
+            Text(text = "Sign in", color = colorResource(id = R.color.black))
         }
         Spacer(modifier = Modifier.height(16.dp))
     }
