@@ -30,6 +30,7 @@ object DestinasiUtama : DestinasiNavigasi {
 fun HalamanUtama(
     onBukuClick: () -> Unit,
     onAnggotaClick: () -> Unit,
+    onPeminjamanClick: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -75,7 +76,7 @@ fun HalamanUtama(
         Spacer(modifier = Modifier.height(20.dp))
 
         Button(
-            onClick = { },
+            onClick = onPeminjamanClick,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(72.dp)

@@ -157,7 +157,7 @@ fun DataPeminjaman(
                     contentDescription = null,
                 )
                 Text(
-                    text = peminjaman.tanggalPinjam.toString(),
+                    text = peminjaman.tanggalbalik,
                     style = MaterialTheme.typography.titleMedium
                 )
             }
@@ -175,7 +175,7 @@ fun DataPeminjaman(
                     contentDescription = null,
                 )
                 Text(
-                    text = peminjaman.tanggalKembali.toString(),
+                    text = peminjaman.tanggalpinjam,
                     style = MaterialTheme.typography.titleMedium
                 )
             }

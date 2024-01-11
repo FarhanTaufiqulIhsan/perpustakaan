@@ -32,7 +32,7 @@ class HalamanPeminjamanViewModel(private val peminjamanRepository: PeminjamanRep
         }
         .stateIn(
             scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(HalamanPeminjamanViewModel.TIMEOUT_MILLIS),
+            started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
             initialValue = HomeUIStatePeminjaman()
         )
 }

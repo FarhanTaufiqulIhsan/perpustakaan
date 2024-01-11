@@ -14,6 +14,8 @@ import com.example.perpustakaan.ui.buku.addBuku.AddBukuViewModel
 import com.example.perpustakaan.ui.buku.detailBuku.DetailBukuViewModel
 import com.example.perpustakaan.ui.buku.editBuku.EditBukuViewModel
 import com.example.perpustakaan.ui.buku.homeBuku.HalamanBukuViewModel
+import com.example.perpustakaan.ui.peminjaman.addPeminjaman.AddPeminjamanViewModel
+import com.example.perpustakaan.ui.peminjaman.homePeminjaman.HalamanPeminjamanViewModel
 
 fun CreationExtras.aplikasiPerpus(): PerpusAplication =
     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as PerpusAplication)
@@ -60,6 +62,12 @@ object PenyediaViewModel {
                 createSavedStateHandle(),
                 aplikasiPerpus().container.bukuRepository
             )
+        }
+        initializer {
+            HalamanPeminjamanViewModel(aplikasiPerpus().container.peminjamanRepository)
+        }
+        initializer {
+            AddPeminjamanViewModel(aplikasiPerpus().container.peminjamanRepository)
         }
     }
 }

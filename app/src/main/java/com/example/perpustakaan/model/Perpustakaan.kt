@@ -27,8 +27,8 @@ data class Peminjaman(
     val id: String,
     val anggota: String,
     val buku: String,
-    val tanggalPinjam: LocalDate = LocalDate.now(),
-    val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
+    val tanggalpinjam: String,
+    val tanggalbalik: String
 ) {
-    constructor(): this("", "", "", LocalDate.now(), LocalDate.now().plusDays(3))
+    constructor(): this("", "", "", "", "")
 }

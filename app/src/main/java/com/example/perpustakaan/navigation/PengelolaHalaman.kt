@@ -28,6 +28,10 @@ import com.example.perpustakaan.ui.halaman.DestinasiHome
 import com.example.perpustakaan.ui.halaman.DestinasiUtama
 import com.example.perpustakaan.ui.halaman.HalamanHome
 import com.example.perpustakaan.ui.halaman.HalamanUtama
+import com.example.perpustakaan.ui.peminjaman.addPeminjaman.AddPeminjaman
+import com.example.perpustakaan.ui.peminjaman.addPeminjaman.DestinasiEntryPeminjaman
+import com.example.perpustakaan.ui.peminjaman.homePeminjaman.DestinasiHomePeminjaman
+import com.example.perpustakaan.ui.peminjaman.homePeminjaman.PeminjamanScreen
 
 @Composable
 fun PengelolaHalaman(navController: NavHostController = rememberNavController()) {
@@ -43,7 +47,8 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         composable(DestinasiUtama.route) {
             HalamanUtama(
                 onBukuClick = { navController.navigate(DestinasiHomeBuku.route) },
-                onAnggotaClick = { navController.navigate(DestinasiHomeAnggota.route) }
+                onAnggotaClick = { navController.navigate(DestinasiHomeAnggota.route) },
+                onPeminjamanClick = {navController.navigate(DestinasiHomePeminjaman.route)}
             )
         }
 
@@ -140,6 +145,20 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
 
         composable(DestinasiEntryBuku.route){
             AddBuku(navigateBack = { navController.popBackStack() })
+        }
+
+        composable(DestinasiHomePeminjaman.route) {
+            PeminjamanScreen(
+                navigateToItemEntryPeminjaman = {
+                    navController.navigate(DestinasiEntryPeminjaman.route)
+                },
+                onDetailClickPeminjaman = {
+                }
+            )
+        }
+
+        composable(DestinasiEntryPeminjaman.route){
+            AddPeminjaman(navigateBack = { navController.popBackStack() })
         }
     }
 }

@@ -38,8 +38,8 @@ data class AddEventPeminjaman(
     val id: String = "",
     val anggota: String = "",
     val buku: String = "",
-    val tanggalPinjam: LocalDate = LocalDate.now(),
-    val tanggalKembali: LocalDate = LocalDate.now().plusDays(3)
+    val tanggalpinjam: String = "",
+    val tanggalbalik: String = ""
 )
 
 fun Buku.toDetailBuku(): AddEventBuku =
@@ -65,8 +65,8 @@ fun Peminjaman.toDetailPeminjaman(): AddEventPeminjaman =
         id = id,
         anggota = anggota,
         buku = buku,
-        tanggalPinjam = tanggalPinjam,
-        tanggalKembali = tanggalKembali
+        tanggalpinjam = tanggalpinjam,
+        tanggalbalik = tanggalbalik
     )
 
 fun AddEventBuku.toBuku() = Buku(
@@ -90,8 +90,8 @@ fun AddEventPeminjaman.toPeminjaman() = Peminjaman(
     id = id,
     anggota = anggota,
     buku = buku,
-    tanggalPinjam = tanggalPinjam,
-    tanggalKembali = tanggalKembali
+    tanggalpinjam = tanggalpinjam,
+    tanggalbalik = tanggalbalik
 )
 
 data class AddUIStateBuku(
