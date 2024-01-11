@@ -1,7 +1,9 @@
 package com.example.perpustakaan.ui.anggota.homeAnggota
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,9 +31,13 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.perpustakaan.R
 import com.example.perpustakaan.model.Anggota
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.AnggotaTopAppBar
@@ -77,14 +83,26 @@ fun AnggotaScreen(
             }
         }
         ) { innerPadding ->
-        val uiStateAnggota by viewModel.homeUIStateAnggota.collectAsState()
-        BodyHomeAnggota(
-            itemAnggota = uiStateAnggota.listAnggota,
+        Box(
             modifier = Modifier
-                .padding(innerPadding)
-                .fillMaxSize(),
-            onAnggotaClick = onDetailClickAnggota
-        )
+                .fillMaxSize()
+        ){
+            Image(
+                painter = painterResource(id = R.drawable.bg11),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .fillMaxSize()
+            )
+            val uiStateAnggota by viewModel.homeUIStateAnggota.collectAsState()
+            BodyHomeAnggota(
+                itemAnggota = uiStateAnggota.listAnggota,
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .fillMaxSize(),
+                onAnggotaClick = onDetailClickAnggota
+            )
+        }
     }
 }
 
@@ -143,7 +161,8 @@ fun DataAnggota(
 ) {
     Card(
         modifier = modifier,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        colors = CardDefaults.cardColors(colorResource(id = R.color.white))
     ) {
         Column(
             modifier = Modifier.padding(12.dp),

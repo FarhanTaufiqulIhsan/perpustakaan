@@ -1,5 +1,7 @@
 package com.example.perpustakaan.ui.anggota.editAnggota
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -9,7 +11,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.perpustakaan.R
 import com.example.perpustakaan.navigation.DestinasiNavigasi
 import com.example.perpustakaan.ui.PenyediaViewModel
 import com.example.perpustakaan.ui.anggota.addAnggota.EntryBodyAnggota
@@ -33,6 +38,13 @@ fun EditScreenAnggota(
     val coroutineScope = rememberCoroutineScope()
 
     Scaffold() { innerPadding ->
+        Image(
+            painter = painterResource(id = R.drawable.bg14),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxSize()
+        )
         EntryBodyAnggota(
             addUIStateAnggota = viewModel.anggotaUIState,
             onAnggotaValueChange = viewModel::updateUIStateAnggota,

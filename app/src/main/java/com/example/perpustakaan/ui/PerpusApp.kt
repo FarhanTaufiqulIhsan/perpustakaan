@@ -49,6 +49,7 @@ fun AnggotaTopAppBar(
     CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
         scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(colorResource(id = R.color.lightbrown)),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
@@ -100,6 +101,7 @@ fun PeminjamanTopAppBar(
     CenterAlignedTopAppBar(title = { Text(title) },
         modifier = modifier,
         scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(colorResource(id = R.color.lightbrown)),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
