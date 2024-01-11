@@ -46,6 +46,7 @@ object DestinasiHomeBuku: DestinasiNavigasi{
 @Composable
 fun BukuScreen(
     navigateToItemEntryBuku: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClickBuku: (String) -> Unit = {},
     viewModel: HalamanBukuViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -57,7 +58,8 @@ fun BukuScreen(
         topBar = {
             BukuTopAppBar(
                 title = "Buku",
-                canNavigateBack = false,
+                canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },

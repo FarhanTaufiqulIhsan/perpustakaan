@@ -46,6 +46,7 @@ object DestinasiHomeAnggota : DestinasiNavigasi {
 @Composable
 fun AnggotaScreen(
     navigateToItemEntryAnggota: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClickAnggota: (String) -> Unit = {},
     viewModel: HalamanAnggotaViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -57,7 +58,8 @@ fun AnggotaScreen(
         topBar = {
             AnggotaTopAppBar(
                 title = "Anggota",
-                canNavigateBack = false,
+                canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },

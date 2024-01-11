@@ -61,6 +61,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryAnggota = {
                     navController.navigate(DestinasiEntryAnggota.route)
                 },
+                navigateBack = {navController.popBackStack()},
                 onDetailClickAnggota = { itemIdAnggota ->
                     navController.navigate("${DetailDestinationAnggota.route}/$itemIdAnggota")
                     println("itemIdAnggota: $itemIdAnggota")
@@ -124,6 +125,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryBuku = {
                     navController.navigate(DestinasiEntryBuku.route)
                 },
+                navigateBack = {navController.popBackStack()},
                 onDetailClickBuku = { itemIdBuku ->
                     navController.navigate("${DetailDestinationBuku.route}/$itemIdBuku")
                     println("itemIdBuku: $itemIdBuku")
@@ -156,6 +158,7 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
                 navigateToItemEntryPeminjaman = {
                     navController.navigate(DestinasiEntryPeminjaman.route)
                 },
+                navigateBack = {navController.popBackStack()},
                 onDetailClickPeminjaman = {itemIdPeminjaman ->
                     navController.navigate("${DetailDestinationPeminjaman.route}/$itemIdPeminjaman")
                     println("itemIdPeminjaman: $itemIdPeminjaman")

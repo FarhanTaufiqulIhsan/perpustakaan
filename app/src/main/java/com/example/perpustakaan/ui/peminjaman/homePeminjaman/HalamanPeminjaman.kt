@@ -44,6 +44,7 @@ object DestinasiHomePeminjaman : DestinasiNavigasi {
 @Composable
 fun PeminjamanScreen(
     navigateToItemEntryPeminjaman: () -> Unit,
+    navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     onDetailClickPeminjaman: (String) -> Unit = {},
     viewModel: HalamanPeminjamanViewModel = viewModel(factory = PenyediaViewModel.Factory)
@@ -55,7 +56,8 @@ fun PeminjamanScreen(
         topBar = {
             PeminjamanTopAppBar(
                 title = "Peminjaman",
-                canNavigateBack = false,
+                canNavigateBack = true,
+                navigateUp = navigateBack,
                 scrollBehavior = scrollBehavior
             )
         },
