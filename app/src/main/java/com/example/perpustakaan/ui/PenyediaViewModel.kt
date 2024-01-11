@@ -16,6 +16,7 @@ import com.example.perpustakaan.ui.buku.editBuku.EditBukuViewModel
 import com.example.perpustakaan.ui.buku.homeBuku.HalamanBukuViewModel
 import com.example.perpustakaan.ui.peminjaman.addPeminjaman.AddPeminjamanViewModel
 import com.example.perpustakaan.ui.peminjaman.detailPeminjaman.DetailPeminjamanViewModel
+import com.example.perpustakaan.ui.peminjaman.editPeminjaman.EditPeminjamanViewModel
 import com.example.perpustakaan.ui.peminjaman.homePeminjaman.HalamanPeminjamanViewModel
 
 fun CreationExtras.aplikasiPerpus(): PerpusAplication =
@@ -72,6 +73,12 @@ object PenyediaViewModel {
         }
         initializer {
             DetailPeminjamanViewModel(
+                createSavedStateHandle(),
+                aplikasiPerpus().container.peminjamanRepository
+            )
+        }
+        initializer {
+            EditPeminjamanViewModel(
                 createSavedStateHandle(),
                 aplikasiPerpus().container.peminjamanRepository
             )

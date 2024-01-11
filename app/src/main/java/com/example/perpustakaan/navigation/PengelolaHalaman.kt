@@ -32,6 +32,8 @@ import com.example.perpustakaan.ui.peminjaman.addPeminjaman.AddPeminjaman
 import com.example.perpustakaan.ui.peminjaman.addPeminjaman.DestinasiEntryPeminjaman
 import com.example.perpustakaan.ui.peminjaman.detailPeminjaman.DetailDestinationPeminjaman
 import com.example.perpustakaan.ui.peminjaman.detailPeminjaman.DetailScreenPeminjaman
+import com.example.perpustakaan.ui.peminjaman.editPeminjaman.EditDestinationPeminjaman
+import com.example.perpustakaan.ui.peminjaman.editPeminjaman.EditScreenPeminjaman
 import com.example.perpustakaan.ui.peminjaman.homePeminjaman.DestinasiHomePeminjaman
 import com.example.perpustakaan.ui.peminjaman.homePeminjaman.PeminjamanScreen
 
@@ -169,9 +171,26 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
         ){backStackEntry ->
             val peminjamanId = backStackEntry.arguments?.getString(DetailDestinationPeminjaman.peminjamanId)
             peminjamanId?.let {
-               DetailScreenPeminjaman(navigateToEditItemPeminjaman = {}, navigateBack = { /*TODO*/ })
+               DetailScreenPeminjaman(navigateToEditItemPeminjaman = {
+                    navController.navigate("${EditDestinationPeminjaman.route}/$peminjamanId")
+                   println("peminjamanId: $peminjamanId")},
+                   navigateBack = { navController.popBackStack() })
             }
 
+        }
+
+        composable(
+            route = EditDestinationPeminjaman.routeWithArgs,
+            arguments = listOf(navArgument(EditDestinationPeminjaman.peminjamanId){
+                type = NavType.StringType
+            })
+        ){backStackEntry ->
+            val peminjamanId = backStackEntry.arguments?.getString(EditDestinationPeminjaman.peminjamanId)
+            peminjamanId?.let{
+                EditScreenPeminjaman(
+                    navigateBackPeminjaman = { navController.popBackStack() },
+                    onNavigateUpPeminjaman = { navController.navigateUp() })
+            }
         }
 
 
